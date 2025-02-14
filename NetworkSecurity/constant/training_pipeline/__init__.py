@@ -51,7 +51,7 @@ DATA_TRANSFORMATION_DIR_NAME: str = "data_transformation"
 DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR: str = "transformed"
 DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR: str = "transformed_object"
 
-## kkn imputer to replace nan values
+## kkn imputer to replace nan values(replaces the nan value with the avg of 3 nearest neighbours)
 DATA_TRANSFORMATION_IMPUTER_PARAMS: dict = {
     "missing_values": np.nan,
     "n_neighbors": 3,
