@@ -8,9 +8,6 @@ from datetime import datetime
 import os
 from NetworkSecurity.constant import training_pipeline
 
-print(training_pipeline.PIPELINE_NAME)
-print(training_pipeline.ARTIFACT_DIR)
-
 '''Initializes the pipeline name, artifact directory, and model directory using a timestamped structure which is already defined 
 insite the constant folder'''
 class TrainingPipelineConfig:

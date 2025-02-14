@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-#Holds paths to the train/test data files.The output of the dataingestion should be the test and train file path
+#contains the outputs of the different stages of the pipeline
 @dataclass
 class DataIngestionArtifact:
     trained_file_path:str

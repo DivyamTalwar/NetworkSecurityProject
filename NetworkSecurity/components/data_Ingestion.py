@@ -38,7 +38,7 @@ class DataIngestion:
             if "_id" in df.columns.to_list():#MongoDB automatically adds an _id field to each document so drop it not USEFUL
                 df=df.drop(columns=["_id"],axis=1)
             
-            df.replace({"na":np.nan},inplace=True)  #replaces "na" strings with NaN
+            df.replace({"na":np.nan},inplace=True)  #replaces "na"(db adds na for empty strings) with NaN
             return df
         except Exception as e:
             raise NetworkSecurityException

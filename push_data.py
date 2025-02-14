@@ -5,6 +5,8 @@ import pandas as pd
 import numpy as np
 import pymongo
 
+from NetworkSecurity.exception.exception import NetworkSecurityException
+from NetworkSecurity.logging.logger import logging
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -14,10 +16,6 @@ MONGO_DB_URL=os.getenv("MONGO_DB_URL")
 '''A Python package that provides trusted SSL certificates.To Ensures secure SSL/TLS connections to MongoDB.'''
 import certifi
 ca=certifi.where()
-
-
-from NetworkSecurity.exception.exception import NetworkSecurityException
-from NetworkSecurity.logging.logger import logging
 
 
 class NetworkDataExtract():
@@ -32,7 +30,7 @@ class NetworkDataExtract():
             data=pd.read_csv(file_path)
             data.reset_index(drop=True,inplace=True) #Removes the old index that is creataed by default when you make it a df
             records=list(json.loads(data.T.to_json()).values()) #to convert the df into json
-            return records #All Records Are Converted Into List Of JSON(KEY-VALUE PAIRS)
+            return records #All Records Are Converted Into List Of JSON(Each record is in KEY-VALUE PAIRS)
         except Exception as e:
             raise NetworkSecurityException(e,sys)
         
